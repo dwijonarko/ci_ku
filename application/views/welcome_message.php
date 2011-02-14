@@ -46,6 +46,7 @@ demo program :
 	echo 	"<li>".anchor("daily","CRUD with JQueryUI","target='_blank'")."</li>";
 	echo 	"<li>".anchor("daily/jqGrid","Load Data with JQgrid","target='_blank'")."</li>";
 	echo 	"<li>".anchor("autocomplete","Autocomplete with JQueryUI","target='_blank'")."</li>";
+	echo 	"<li>".anchor("chain","Chained Select","target='_blank'")."</li>";
 	echo "</ul>";
 ?>
 <p><br />Page rendered in {elapsed_time} seconds</p>
