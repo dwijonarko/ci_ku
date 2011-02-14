@@ -1,4 +1,4 @@
-Kota / Kabupaten :
+Kota / Kabupaten :<br/>
    	<?php
-    	echo form_dropdown("kota_id",$option_kota,'');
+    	echo form_dropdown("kota_id",$option_kota,'',"id='kota_id'");
     ?>

@@ -10,14 +10,14 @@
   </head>
   <body>
     <!-- page content -->
-    <div id="propinsi">
-    Propinsi : 
+    <div id="propinsi" style="width:250px;float:left;">
+    Propinsi : <br/>
     <?php
     	echo form_dropdown("provinsi_id",$option_propinsi,"","id='propinsi_id'");
     ?>
     </div>
     <div id="kota">
-    Kota / Kabupaten :
+    Kota / Kabupaten :<br/>
    	<?php
     	echo form_dropdown("kota_id",array('Pilih Kota / Kabupaten'=>'Pilih Propinsi Dahulu'),'','disabled');
     ?>
@@ -25,6 +25,7 @@
     <script type="text/javascript">
 	  	$("#propinsi_id").change(function(){
 	    		var propinsi_id = {propinsi_id:$("#propinsi_id").val()};
+	    		$('#kota_id').attr("disabled",true);
 	    		$.ajax({
 						type: "POST",
 						url : "<?php echo site_url('chain/select_kota')?>",
