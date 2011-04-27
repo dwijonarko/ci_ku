@@ -24,16 +24,22 @@
     </div>
     <script type="text/javascript">
 	  	$("#propinsi_id").change(function(){
-	    		var propinsi_id = {propinsi_id:$("#propinsi_id").val()};
-	    		$('#kota_id').attr("disabled",true);
-	    		$.ajax({
-						type: "POST",
-						url : "<?php echo site_url('chain/select_kota')?>",
-						data: propinsi_id,
-						success: function(msg){
-							$('#kota').html(msg);
-						}
+	    		var selectValues = $("#propinsi_id").val();
+	    		if (selectValues == 0){
+	    			var msg = "Kota / Kabupaten :<br><select name=\"kota_id\" disabled><option value=\"Pilih Kota / Kabupaten\">Pilih Propinsi Dahulu</option></select>";
+	    			$('#kota').html(msg);
+	    		}else{
+	    			var propinsi_id = {propinsi_id:$("#propinsi_id").val()};
+	    			$('#kota_id').attr("disabled",true);
+	    			$.ajax({
+							type: "POST",
+							url : "<?php echo site_url('chain/select_kota')?>",
+							data: propinsi_id,
+							success: function(msg){
+								$('#kota').html(msg);
+							}
 				  	});
+	    		}
 	    });
 	   </script>
   </body>

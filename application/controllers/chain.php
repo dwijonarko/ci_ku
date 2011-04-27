@@ -13,8 +13,12 @@ class Chain extends Controller{
 	}
 	
 	function select_kota(){
-		$data['option_kota'] = $this->MChain->getKotaList();		
-		$this->load->view('chain/kota',$data);
+		if('IS_AJAX')
+    {
+    	$data['option_kota'] = $this->MChain->getKotaList();		
+			$this->load->view('chain/kota',$data);
+    }
+		
 	}
 }
 ?>

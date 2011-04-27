@@ -5,7 +5,7 @@ class MDaily extends Model{
   }
   
   function getAll(){
-    $this->db->select('id,date,name,FORMAT(amount,"2") AS amount',FALSE);
+    $this->db->select('id,date,name,amount');
     $this->db->from('daily');
     $this->db->limit(10);
     $this->db->order_by('id','ASC');
