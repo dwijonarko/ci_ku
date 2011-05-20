@@ -14,6 +14,16 @@ class MDaily extends Model{
     return $query->result();
   }
   
+  function getAllGrid($limit,$sidx,$sord){
+    $this->db->select('id,date,name,amount');
+    $this->db->from('daily');
+    $this->db->limit($limit);
+    $this->db->order_by($sidx,$sord);
+    $query = $this->db->get();
+    
+    return $query->result();
+  }
+  
   function get($id){
     $query = $this->db->getwhere('daily',array('id'=>$id));
     return $query->row_array();		  

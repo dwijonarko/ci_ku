@@ -33,10 +33,12 @@
 		  			],
 				   	rowNum:10,
 				   	width: 450,
-					height: 300,
+						height: 300,
 				   	rowList:[10,20,30],
 				   	pager: '#pager1',
 				   	sortname: 'id',
+				   	sortable: true,
+				   	sortorder: "desc",
 					viewrecords: true,
 					caption:"List Daily"
 				}).navGrid('#pager1',{edit:false,add:false,del:false});

@@ -53,7 +53,8 @@ class Daily extends Controller{
 		$sord = isset($_POST['sord'])?$_POST['sord']:''; // get the direction
  
 		if(!$sidx) $sidx =1;
-		$query = $this->MDaily->getAll();
+		//$query = $this->MDaily->getAll();
+		$query = $this->MDaily->getAllGrid($limit,$sidx,$sord);
 	 
 		$count = count($query);
  

@@ -1,6 +1,6 @@
 <h1>Daily Notes</h1>
-<table id="daily" class="ui-widget ui-widget-content" width="400px">
- <tr class="ui-widget-header ">
+<table >
+ <tr >
  <th>No</th>
  <th>Date</th>
  <th>Name</th>
