@@ -3,32 +3,32 @@ class MDaily extends Model{
   function __construct (){
     parent::Model();
   }
-  
+
   function getAll(){
     $this->db->select('id,date,name,amount');
     $this->db->from('daily');
     $this->db->limit(10);
     $this->db->order_by('id','ASC');
     $query = $this->db->get();
-    
+
     return $query->result();
   }
-  
-  function getAllGrid($limit,$sidx,$sord){
+
+  function getAllGrid($start,$limit,$sidx,$sord,$where){
     $this->db->select('id,date,name,amount');
-    $this->db->from('daily');
     $this->db->limit($limit);
+    if($where != NULL)$this->db->where($where,NULL,FALSE);
     $this->db->order_by($sidx,$sord);
-    $query = $this->db->get();
-    
+    $query = $this->db->get('daily',$limit,$start);
+
     return $query->result();
   }
-  
+
   function get($id){
     $query = $this->db->getwhere('daily',array('id'=>$id));
-    return $query->row_array();		  
+    return $query->row_array();
   }
-  
+
   function save(){
     $date = $this->input->post('date');
     $name = $this->input->post('name');
@@ -40,7 +40,7 @@ class MDaily extends Model{
     );
     $this->db->insert('daily',$data);
   }
-  
+
   function update(){
     $id   = $this->input->post('id');
     $date = $this->input->post('date');
@@ -52,7 +52,8 @@ class MDaily extends Model{
       'amount'=>$amount
     );
     $this->db->where('id',$id);
-    $this->db->update('daily',$data);    
+    $this->db->update('daily',$data);
   }
 
 }
+
