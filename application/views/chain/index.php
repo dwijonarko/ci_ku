@@ -10,6 +10,7 @@
   </head>
   <body>
     <!-- page content -->
+    <?php echo form_open('chain/submit');?>
     <div id="propinsi" style="width:250px;float:left;">
     Propinsi : <br/>
     <?php
@@ -22,6 +23,8 @@
     	echo form_dropdown("kota_id",array('Pilih Kota / Kabupaten'=>'Pilih Propinsi Dahulu'),'','disabled');
     ?>
     </div>
+    <?php echo form_submit("submit","Submit"); ?>
+    <?php echo form_close(); ?>
     <script type="text/javascript">
 	  	$("#propinsi_id").change(function(){
 	    		var selectValues = $("#propinsi_id").val();
