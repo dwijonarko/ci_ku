@@ -8,7 +8,7 @@
  <th>Edit</th>
  <th>Delete</th>
  </tr>
- <?
+ <?php
  $i=0;
  foreach ($query as $row){
  $i++;
