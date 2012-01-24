@@ -8,22 +8,21 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>jqgrid/js/i18n/grid.locale-en.js"></script>
-        <script type="text/javascript" src="<?php echo base_url(); ?>jqgrid/jquery.jqGrid.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>jqgrid/jquery.jqGrid.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>jqgrid/jquery.layout.js"></script>
 
 		<title>Demo Jquery JqGrid Codeigniter</title>
 	</head>
 	<body>
-		<?
+		<?php
 			$ci =& get_instance();
 			$base_url = base_url();
 		?>
 
 		<script type="text/javascript">
-			jQuery().ready(function (){
-				jQuery("#list1").jqGrid({
-		   			url:'<?=$base_url.'index.php/daily/loadDataGrid'?>',      //another controller function for generating data
+			 $(document).ready(function () {
+				$("#list1").jqGrid({
+		   		url:'<?php echo $base_url.'index.php/daily/loadDataGrid'?>',      //another controller function for generating data
 					mtype : "post",             //Ajax request type. It also could be GET
 					datatype: "json",            //supported formats XML, JSON or Arrray
 		   			colNames:['Date','Name','Amount'],       //Grid column headings
